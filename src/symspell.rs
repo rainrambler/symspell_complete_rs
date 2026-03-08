@@ -9,21 +9,27 @@ use unicode_normalization::UnicodeNormalization;
 
 #[cfg(not(all(target_feature = "aes", target_feature = "sse2")))]
 use ahash::RandomState;
-#[cfg(not(all(target_feature = "aes", target_feature = "sse2")))]
+
 use std::sync::LazyLock;
 
 #[cfg(not(all(target_feature = "aes", target_feature = "sse2")))]
 pub static HASHER_32: LazyLock<RandomState> =
     LazyLock::new(|| RandomState::with_seeds(805272099, 242851902, 646123436, 591410655));
 
+use std::hash::BuildHasher;
+use rapidhash::quality::SeedableState;
+
+static RAPID_HASHER: LazyLock<SeedableState> = LazyLock::new(|| SeedableState::new(1234));
+
 // stable hash, faster, but not available on all platforms
 // https://github.com/tkaitchuck/aHash
 #[inline]
 #[cfg(all(target_feature = "aes", target_feature = "sse2"))]
 pub(crate) fn hash32(term_bytes: &[u8]) -> u32 {
-    use gxhash::gxhash32;
-
-    gxhash32(term_bytes, 1234)
+    //use gxhash::gxhash32;
+    //gxhash32(term_bytes, 1234)
+    // High 32 bits
+    (RAPID_HASHER.hash_one(term_bytes) >> 32) as u32
 }
 
 // unstable hash, slower, but available on all platforms

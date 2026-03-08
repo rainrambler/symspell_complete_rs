@@ -73,15 +73,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "gxhash"
-version = "3.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f3ce1bab7aa741d4e7042b2aae415b78741f267a98a7271ea226cd5ba6c43d7d"
-dependencies = [
- "rustversion",
-]
-
-[[package]]
 name = "itertools"
 version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -137,6 +128,15 @@ name = "r-efi"
 version = "5.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "69cdb34c158ceb288df11e18b4bd39de994f6657d83847bdffdbd7f346754b0f"
+
+[[package]]
+name = "rapidhash"
+version = "4.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5d8b5b858a440a0bc02625b62dd95131b9201aa9f69f411195dd4a7cfb1de3d7"
+dependencies = [
+ "rustversion",
+]
 
 [[package]]
 name = "regex"
@@ -233,8 +233,8 @@ version = "0.0.2"
 dependencies = [
  "ahash",
  "compact_str",
- "gxhash",
  "itertools",
+ "rapidhash",
  "regex",
  "serde",
  "smallvec",

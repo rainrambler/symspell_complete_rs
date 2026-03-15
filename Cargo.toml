@@ -1,13 +1,13 @@
 [package]
-name = "symspell_complete_rs"
+name = "symspell_complete_rapid"
 version = "0.0.2"
-authors = ["Wolf Garbe <Wolf Garbe wolf.garbe@seekstorm.com>"]
+authors = ["rainrambler <wanganyu@outlook.com>"]
 license = "MIT"
 categories = ["database-implementations", "data-structures"]
-description = "typo-tolerant autocomplete in Rust"
+description = "typo-tolerant autocomplete in Rust (based on symspell_complete_rs, replace gxhash with rapidhash)"
 documentation = "https://docs.rs/symspell_complete_rs/"
-homepage = "https://github.com/wolfgarbe/symspell_complete_rs"
-repository = "https://github.com/wolfgarbe/symspell_complete_rs"
+homepage = "https://github.com/rainrambler/symspell_complete_rs"
+repository = "https://github.com/rainrambler/symspell_complete_rs"
 readme = "README.md"
 keywords = ["spellcheck","autocomplete", "symspell", "typo-tolerant"]
 exclude = ["data/*", ".*"]
